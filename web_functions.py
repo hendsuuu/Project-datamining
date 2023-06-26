@@ -7,6 +7,7 @@ from sklearn import metrics
 from sklearn.neighbors import KNeighborsClassifier
 import streamlit as st
 from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
@@ -78,11 +79,12 @@ def train_model_NBC(X, y):
     acc_score = round(accuracy_score(y_test, Y_pred) * 100, 2)
     acc_gaussian = round(gaussian.score(X_train, y_train) * 100, 2)
 
+    cm = confusion_matrix(y_test, Y_pred)
     precision = precision_score(y_test, Y_pred, average='micro')
     recall = recall_score(y_test, Y_pred, average='micro')
     f1 = f1_score(y_test, Y_pred, average='micro')
 
-    return nbc, acc_score, acc_gaussian, precision, recall, f1
+    return nbc, acc_score, acc_gaussian, precision, recall, f1,cm
 
 
 @st.cache_data

@@ -1,6 +1,6 @@
 import streamlit as st
 from web_functions import load_data
-import pandas as pd
+
 
 from Tabs import home, predict, visualise
 
