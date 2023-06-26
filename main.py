@@ -1,5 +1,5 @@
 import streamlit as st
-from web_functions import load_data
+from web_functions import load_data,upload
 
 from Tabs import home, predict, visualise
 
@@ -14,8 +14,11 @@ st.sidebar.title("Navigasi")
 
 #membuat radio option
 page = st.sidebar.radio("Pages",list(Tabs.keys()))
+
+#upload file dataset
+dataset = upload()
 #load dataset
-df,x,y = load_data()
+df,x,y = load_data(dataset)
 #kondisi call app function
 if page in ["Prediction","Visualisation"]:
     Tabs[page].app(df,x,y)

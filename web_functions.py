@@ -11,14 +11,19 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 
 @st.cache_data
-def load_data():
-    uploaded_file = st.file_uploader("Choose your database", accept_multiple_files=False)
+def upload():
+    uploaded_file = st.file_uploader("Choose your database", accept_multiple_files=False,label_visibility="hidden")
     if uploaded_file is not None:
         file_name = uploaded_file
     else:
         file_name = "iris.csv"
-        
-    iris = pd.read_csv('iris.csv')
+
+    return file_name
+
+@st.cache_data
+def load_data(dataset):
+    
+    iris = pd.read_csv(dataset)
 
     X = iris[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]
     y = iris['Species']
