@@ -23,7 +23,7 @@ page = st.sidebar.radio("Pages",list(Tabs.keys()))
 # else:
 #     dataset = "iris.csv"
 
-dataset = open("iris.csv")
+dataset = pd.read_csv("./Project-datamining/iris.csv")
 
 #load dataset
 df,x,y = load_data(dataset)
