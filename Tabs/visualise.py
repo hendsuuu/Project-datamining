@@ -22,6 +22,6 @@ def app(df, x, y):
     elif st.checkbox("Confusion Matrix"):
         cm = train_model_NBC(x,y)
         
-        st.write('Confusion matrix for Naive Bayes\n',cm)
+        st.write('\nConfusion matrix for Naive Bayes\n',cm)
         
         
