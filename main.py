@@ -23,10 +23,10 @@ page = st.sidebar.radio("Pages",list(Tabs.keys()))
 # else:
 #     dataset = "iris.csv"
 
-dataset = pd.read_csv("./Iris.csv")
+# dataset = pd.read_csv("./Iris.csv")
 
 #load dataset
-df,x,y = load_data(dataset)
+df,x,y = load_data()
 #kondisi call app function
 if page in ["Prediction","Visualisation"]:
     Tabs[page].app(df,x,y)

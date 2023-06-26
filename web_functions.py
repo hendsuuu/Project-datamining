@@ -21,9 +21,9 @@ def upload():
     return file_name
 
 @st.cache_data
-def load_data(dataset):
+def load_data():
     
-    iris = pd.read_csv(dataset)
+    iris = pd.read_csv("Iris.csv")
 
     X = iris[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]
     y = iris['Species']
