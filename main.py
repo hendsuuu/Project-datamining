@@ -23,4 +23,4 @@ df,x,y = load_data()
 if page in ["Prediction","Visualisation"]:
     Tabs[page].app(df,x,y)
 else:
-    Tabs[page].app() # type: ignore
+    Tabs[page].app(df,x,y) # type: ignore
