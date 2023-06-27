@@ -4,7 +4,7 @@ import seaborn as sns
 from sklearn import tree
 import streamlit as st
 
-from web_functions import train_model_DT,train_model_KNN,train_model_NBC
+from web_functions import train_model_DT,train_model_KNN,train_model_NBC,load_data
 
 def app(df, x, y):
     warnings.filterwarnings('ignore')
@@ -19,10 +19,12 @@ def app(df, x, y):
             feature_names=x.columns, class_names=['Iris-setosa','Iris-versicolor','Iris-virginica']
         )
         st.graphviz_chart(dot_data)
-    elif st.checkbox("Confusion Matrix"):
-        cm = train_model_NBC(x,y)
+    elif st.checkbox("Pairplot"):
+        iris = load_data()
+        st.title("Hello")
+        fig = sns.pairplot(iris, hue="Species")
+        st.pyplot(fig)
+
         
-        st.write('\nConfusion matrix for Naive Bayes\n')
-        st.dataframe(cm)
         
         
