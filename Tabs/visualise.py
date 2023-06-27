@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import tree
 import streamlit as st
+import numpy as np
+import pandas as pd
 
 from web_functions import train_model_DT,train_model_KNN,train_model_NBC,load_data
 
@@ -20,9 +22,8 @@ def app(df, x, y):
         )
         st.graphviz_chart(dot_data)
     elif st.checkbox("Pairplot"):
-        iris = load_data()
-        st.title("Hello")
-        fig = sns.pairplot(iris, hue="Species")
+        st.title("Pairplot")
+        fig = sns.pairplot(df, hue="Species")
         st.pyplot(fig)
 
         
