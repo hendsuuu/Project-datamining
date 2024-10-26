@@ -21,11 +21,10 @@ def app(df, x, y):
     
     tipe_model = {
         "KNN": predict_KNN,
-        "DT" : predict_DT,
         "NBC" : predict_NBC,
     }
     
-    predict = st.radio(label="Pilih Model ",options=["KNN","DT","NBC"])
+    predict = st.radio(label="Pilih Model ",options=["KNN","NBC"])
 
     #Tombol Prediksi
     if st.button("Prediksi"):
@@ -42,19 +41,19 @@ def app(df, x, y):
                 st.success("Termasuk kedalam Iris jenis Virginica")
 
             st.write("Model yang digunakan memiliki tingkat akurasi ", (score*100), "%")
-        elif predict == "DT":
-            prediction, score = predict_DT(x,y,features) # type: ignore
-            score = score
-            st.info("Prediksi Sukses....")
+        # elif predict == "DT":
+        #     prediction, score = predict_DT(x,y,features) # type: ignore
+        #     score = score
+        #     st.info("Prediksi Sukses....")
 
-            if(prediction == "Iris-setosa"):
-                st.success("Termasuk kedalam Iris jenis Setosa")
-            elif(prediction == "Iris-versicolor"):
-                st.success("Termasuk kedalam Iris jenis Versi Color")
-            elif(prediction == "Iris-virginica"):
-                st.success("Termasuk kedalam Iris jenis Virginica")
+        #     if(prediction == "Iris-setosa"):
+        #         st.success("Termasuk kedalam Iris jenis Setosa")
+        #     elif(prediction == "Iris-versicolor"):
+        #         st.success("Termasuk kedalam Iris jenis Versi Color")
+        #     elif(prediction == "Iris-virginica"):
+        #         st.success("Termasuk kedalam Iris jenis Virginica")
 
-            st.write("Model yang digunakan memiliki tingkat akurasi ", (score*100), "%")
+        #     st.write("Model yang digunakan memiliki tingkat akurasi ", (score*100), "%")
         else:
             prediction, score = predict_NBC(x,y,features) # type: ignore
             score = score
